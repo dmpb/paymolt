@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreatePaymentLinkTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('payment_links', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->text('code');
-            $table->string('name', 255);
-            $table->text('description')->nullable();
-            $table->string('currency')->default('PEN');
-            $table->float('amount');
+            $table->uuid('code');
+            $table->enum('mode_type', ['development', 'production'])->default('development');
+            $table->string('currency');
+            $table->float('amount', 8, 2);
+            $table->text('description');
+            $table->json('policy_settings');
             $table->timestamp('finished_at');
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('payment_links');
     }
 }

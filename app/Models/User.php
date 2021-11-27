@@ -29,6 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'nickname',
+        'settigs'
     ];
 
     /**
@@ -41,6 +42,7 @@ class User extends Authenticatable
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'settings',
     ];
 
     /**
@@ -50,6 +52,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'settings'          => 'array',
     ];
 
     /**
@@ -62,12 +65,22 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get all of the products for the User
+     * Get all of the payments for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function products(): HasMany
+    public function payments(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Payment::class);
+    }
+
+    /**
+     * Get all of the paymentLinks for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paymentLinks(): HasMany
+    {
+        return $this->hasMany(PaymentLink::class);
     }
 }

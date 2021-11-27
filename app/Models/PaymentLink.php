@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class PaymentLink extends Model
 {
     use HasFactory;
 
@@ -18,10 +17,11 @@ class Product extends Model
      */
     protected $fillable = [
         'code',
-        'name',
-        'description',
+        'mode_type',
         'currency',
         'amount',
+        'description',
+        'policy_settings',
         'finished_at',
     ];
 
@@ -31,27 +31,17 @@ class Product extends Model
      * @var array
      */
     protected $casts = [
-        'finished_at'   => 'datetime',
-        'amount'        => 'float'
+        'policy_settings'   => 'array',
+        'finished_at'       => 'datetime',
     ];
 
     /**
-     * Get the user that owns the Product
+     * Get the user that owns the PaymentLink
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get all of the payments for the Product
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function payments(): HasMany
-    {
-        return $this->hasMany(Payment::class);
     }
 }

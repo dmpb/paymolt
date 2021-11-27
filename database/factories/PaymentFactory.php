@@ -14,14 +14,14 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'payment_metadata'  => [
-                'currency'  => $this->faker->currencyCode(),
-                'amount'     => $this->faker->numberBetween(5, 60),
-            ],
-            'user_metadata'     => [
-                'name'      => $this->faker->name(),
-                'email'     => $this->faker->email(),
-            ],
+            'mode_type'     => 'development',
+            'description'   => $this->faker->text(50),
+            'client'        => [
+                'name'          => $this->faker->name(),
+                'email'         => $this->faker->email(),
+                'phone_number'  => $this->faker->phoneNumber(),
+                'address'       => $this->faker->streetAddress(),
+            ]
         ];
     }
 }

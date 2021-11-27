@@ -16,8 +16,13 @@ class Payment extends Model
      * @var string[]
      */
     protected $fillable = [
-        'payment_metadata',
-        'user_metadata',
+        'mode_type',
+        'charge_culqi_id',
+        'status',
+        'currency',
+        'amount',
+        'description',
+        'client',
     ];
 
     /**
@@ -26,17 +31,16 @@ class Payment extends Model
      * @var array
      */
     protected $casts = [
-        'payment_metadata'  => 'array',
-        'user_metadata'     => 'array'
+        'client'    => 'array',
     ];
 
     /**
-     * Get the prodduct that owns the Payment
+     * Get the user that owns the Payment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function prodduct(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(User::class);
     }
 }

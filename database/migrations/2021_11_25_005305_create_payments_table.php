@@ -15,9 +15,14 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
-            $table->json('payment_metadata');
-            $table->json('user_metadata');
+            $table->foreignId('user_id')->constrained();
+            $table->enum('mode_type', ['development', 'production'])->default('development');
+            $table->string('charge_culqi_id');
+            $table->string('status');
+            $table->string('currency');
+            $table->float('amount', 8, 2);
+            $table->text('description');
+            $table->json('client');
             $table->timestamps();
         });
     }

@@ -25,12 +25,18 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'nickname' => $this->faker->uuid(),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'settings'  => [
+                'culqi_development' => [
+                    'public_key'    => 'pk_test_2baa0c68aa9d5f63',
+                    'private_key'   => encrypt('pk_test_2baa0c68aa9d5f63')
+                ],
+                'current_mode'  => 'development'
+            ],
         ];
     }
 
