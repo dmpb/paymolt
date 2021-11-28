@@ -35,6 +35,14 @@
                                 >
                                     Pagos
                                 </jet-nav-link>
+                                <jet-nav-link
+                                    :href="route('payment-links.index')"
+                                    :active="
+                                        route().current('payment-links.index')
+                                    "
+                                >
+                                    Enlaces de pagos
+                                </jet-nav-link>
                             </div>
                         </div>
 
@@ -324,6 +332,12 @@
                             :active="route().current('payments.index')"
                         >
                             Pagos
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link
+                            :href="route('payment-links.index')"
+                            :active="route().current('payment-links.index')"
+                        >
+                            Enlaces de pagos
                         </jet-responsive-nav-link>
                     </div>
 

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentLinkController;
+use App\Models\PaymentLink;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,13 +25,18 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('welcome');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'credentials'])->group(function () {
     Route::get('payments', [PaymentController::class, 'index'])->name('payments.index');
     Route::get('payments/{payment}', [PaymentController::class, 'show'])->name('payments.show');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('payment-links', [PaymentLinkController::class, 'index'])->name('payment-links.index');
+    Route::get('payment-links/{paymentLink}', [PaymentLinkController::class, 'show'])->name('payment-links.show');
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PaymentLink;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PaymentLinkController extends Controller
 {
@@ -12,9 +13,14 @@ class PaymentLinkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = $request->user();
+        $paymentLinks = $user->paymentLinks()->paginate();
+
+        return Inertia::render('PaymentLinks/Index',[
+            'paymentLinks'  => $paymentLinks
+        ]);
     }
 
     /**
