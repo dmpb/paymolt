@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'settings'  => [
                 'culqi_development' => [
                     'public_key'    => 'pk_test_2baa0c68aa9d5f63',
-                    'private_key'   => encrypt('pk_test_2baa0c68aa9d5f63')
+                    'private_key'   => encrypt('sk_test_b81df9935f43b041')
                 ],
                 'current_mode'  => 'development'
             ],

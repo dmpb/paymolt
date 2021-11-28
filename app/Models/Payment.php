@@ -35,6 +35,15 @@ class Payment extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'amount_format',
+    ];
+
+    /**
      * Get the user that owns the Payment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -42,5 +51,10 @@ class Payment extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getAmountFormatAttribute()
+    {
+        return number_format($this->amount, 2, '.', ' ');
     }
 }
