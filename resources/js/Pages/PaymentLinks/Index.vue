@@ -41,7 +41,7 @@
                             >
                                 <td class="border-t">
                                     <div
-                                        class="flex items-center justify-start px-6 py-3 text-sm "
+                                        class="flex items-center justify-start px-6 py-3 text-sm text-blue-900 "
                                     >
                                         htts://paymolt.com/buy/{{
                                             paymentLink.code
@@ -49,7 +49,12 @@
                                     </div>
                                 </td>
                                 <td class="border-t">
-                                    <div
+                                    <Link
+                                        :href="
+                                            route('payment-links.edit', {
+                                                paymentLink: paymentLink.code,
+                                            })
+                                        "
                                         class="flex items-center justify-end px-6 py-3 text-sm font-bold "
                                     >
                                         {{
@@ -59,17 +64,51 @@
                                                 paymentLink.amount
                                             )
                                         }}
-                                    </div>
+                                    </Link>
                                 </td>
                                 <td class="border-t">
-                                    <div
+                                    <Link
+                                        :href="
+                                            route('payment-links.edit', {
+                                                paymentLink: paymentLink.code,
+                                            })
+                                        "
                                         class="flex items-center justify-center px-6 py-3 text-sm "
                                     >
-                                        Finalizado
-                                    </div>
+                                        <span
+                                            v-if="
+                                                paymentLink.finished_at ==
+                                                    null || paymentLink == ''
+                                            "
+                                            class="
+                                                px-2
+                                                py-0.5
+                                                text-green-700
+                                                font-bold
+                                                rounded-md
+                                            "
+                                            >Activo</span
+                                        >
+                                        <span
+                                            v-else
+                                            class="
+                                                px-2
+                                                py-0.5
+                                                font-bold
+                                                text-red-700
+                                                rounded-md
+                                            "
+                                            >Finalizado</span
+                                        >
+                                    </Link>
                                 </td>
                                 <td class="border-t">
-                                    <div
+                                    <Link
+                                        :href="
+                                            route('payment-links.edit', {
+                                                paymentLink: paymentLink.code,
+                                            })
+                                        "
                                         class="flex items-center justify-end px-6 py-3 text-sm "
                                     >
                                         {{
@@ -79,14 +118,19 @@
                                                 paymentLink.updated_at
                                             )
                                         }}
-                                    </div>
+                                    </Link>
                                 </td>
                                 <td class="border-t">
-                                    <div
+                                    <Link
+                                        :href="
+                                            route('payment-links.edit', {
+                                                paymentLink: paymentLink.code,
+                                            })
+                                        "
                                         class="flex items-center justify-end px-6 py-3 text-sm text-gray-600 "
                                     >
                                         <i class="fas fa-angle-right"></i>
-                                    </div>
+                                    </Link>
                                 </td>
                             </tr>
                         </tbody>

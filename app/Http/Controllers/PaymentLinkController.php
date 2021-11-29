@@ -16,9 +16,9 @@ class PaymentLinkController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        $paymentLinks = $user->paymentLinks()->paginate();
+        $paymentLinks = $user->paymentLinks()->orderBy('created_at', 'desc')->paginate();
 
-        return Inertia::render('PaymentLinks/Index',[
+        return Inertia::render('PaymentLinks/Index', [
             'paymentLinks'  => $paymentLinks
         ]);
     }
@@ -45,17 +45,6 @@ class PaymentLinkController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PaymentLink  $paymentLink
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PaymentLink $paymentLink)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\PaymentLink  $paymentLink
@@ -63,7 +52,9 @@ class PaymentLinkController extends Controller
      */
     public function edit(PaymentLink $paymentLink)
     {
-        //
+        return Inertia::render('PaymentLinks/Edit', [
+            'paymentLink'   => $paymentLink,
+        ]);
     }
 
     /**
@@ -75,7 +66,25 @@ class PaymentLinkController extends Controller
      */
     public function update(Request $request, PaymentLink $paymentLink)
     {
-        //
+        $request->validate([
+            'amount'        => ['required', 'numeric', 'min:1', 'max:2000'],
+            'description'   => ['nullable', 'string', 'max:500'],
+            'policy_settings.email_required'          => ['required', 'boolean'],
+            'policy_settings.phone_number_required'   => ['required', 'boolean'],
+            'policy_settings.address_required'        => ['required', 'boolean'],
+            'policy_settings.name_required'           => ['required', 'boolean'],
+        ]);
+
+        $paymentLink->update([
+            'amount'        => $request->amount,
+            'description'   => $request->description,
+            'policy_settings.email_required'            => $request->policy_settings['email_required'],
+            'policy_settings.phone_number_required'     => $request->policy_settings['phone_number_required'],
+            'policy_settings.address_required'          => $request->policy_settings['address_required'],
+            'policy_settings.name_required'             => $request->policy_settings['name_required'],
+        ]);
+
+        return redirect()->route('payment-links.index');
     }
 
     /**
