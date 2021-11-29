@@ -69,6 +69,7 @@ class PaymentLinkController extends Controller
         $request->validate([
             'amount'        => ['required', 'numeric', 'min:1', 'max:2000'],
             'description'   => ['nullable', 'string', 'max:500'],
+            'finished_at'   => ['required', 'boolean'],
             'policy_settings.email_required'          => ['required', 'boolean'],
             'policy_settings.phone_number_required'   => ['required', 'boolean'],
             'policy_settings.address_required'        => ['required', 'boolean'],
@@ -78,6 +79,7 @@ class PaymentLinkController extends Controller
         $paymentLink->update([
             'amount'        => $request->amount,
             'description'   => $request->description,
+            'finished_at'   => $request->finished_at == true ? now() : null,
             'policy_settings.email_required'            => $request->policy_settings['email_required'],
             'policy_settings.phone_number_required'     => $request->policy_settings['phone_number_required'],
             'policy_settings.address_required'          => $request->policy_settings['address_required'],

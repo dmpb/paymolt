@@ -21,7 +21,7 @@
 
                             <!-- Navigation Links -->
                             <div
-                                class="hidden space-x-8  sm:-my-px sm:ml-10 sm:flex"
+                                class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <jet-nav-link
                                     :href="route('dashboard')"
@@ -58,7 +58,7 @@
                                         <span class="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md  hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50"
+                                                class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50"
                                             >
                                                 {{
                                                     $page.props.user
@@ -192,7 +192,7 @@
                                                 $page.props.jetstream
                                                     .managesProfilePhotos
                                             "
-                                            class="flex text-sm transition border-2 border-transparent rounded-full  focus:outline-none focus:border-gray-300"
+                                            class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300"
                                         >
                                             <img
                                                 class="object-cover w-8 h-8 rounded-full "
@@ -210,7 +210,7 @@
                                         >
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md  hover:text-gray-700 focus:outline-none"
+                                                class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none"
                                             >
                                                 {{ $page.props.user.name }}
 
@@ -276,7 +276,7 @@
                                     showingNavigationDropdown =
                                         !showingNavigationDropdown
                                 "
-                                class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md  hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
+                                class="inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
                             >
                                 <svg
                                     class="w-6 h-6"
@@ -473,7 +473,7 @@
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
                 <div
-                    class="flex items-center justify-between px-4 py-6 mx-auto  full max-w-7xl sm:px-6 lg:px-8"
+                    class="flex items-center justify-between px-4 py-6 mx-auto full max-w-7xl sm:px-6 lg:px-8"
                 >
                     <slot name="header"></slot>
                     <p
@@ -482,7 +482,7 @@
                             px-2
                             text-xs text-yellow-500
                             bg-yellow-100
-                            rounded-full
+                            rounded-md
                         "
                     >
                         Modo de prueba

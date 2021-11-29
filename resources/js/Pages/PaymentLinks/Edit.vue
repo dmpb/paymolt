@@ -12,7 +12,66 @@
         </template>
         <div>
             <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="max-w-xl mb-6 bg-white rounded-md shadow">
+                <div class="max-w-xl mx-auto mb-6">
+                    <div class="flex justify-between">
+                        <div class="grid grid-cols-5">
+                            <!-- Created_at -->
+                            <div class="col-span-2 text-sm text-gray-400">
+                                Creado:
+                            </div>
+                            <div class="col-span-3 text-sm">
+                                {{
+                                    dateFormat(
+                                        "es-PE",
+                                        "America/Lima",
+                                        paymentLink.created_at
+                                    )
+                                }}
+                            </div>
+                            <!-- Updated_at -->
+                            <div class="col-span-2 text-sm text-gray-400">
+                                Actualizado:
+                            </div>
+                            <div class="col-span-3 text-sm">
+                                {{
+                                    dateFormat(
+                                        "es-PE",
+                                        "America/Lima",
+                                        paymentLink.updated_at
+                                    )
+                                }}
+                            </div>
+                        </div>
+                        <div>
+                            <span
+                                v-if="
+                                    paymentLink.finished_at == null ||
+                                    paymentLink == ''
+                                "
+                                class="
+                                    px-2
+                                    py-0.5
+                                    text-green-600
+                                    font-bold
+                                    rounded-md
+                                "
+                                >Activo</span
+                            >
+                            <span
+                                v-else
+                                class="
+                                    px-2
+                                    py-0.5
+                                    font-bold
+                                    text-red-600
+                                    rounded-md
+                                "
+                                >Finalizado</span
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-xl mx-auto mb-6 bg-white rounded-md shadow">
                     <form
                         @submit.prevent="
                             form.put(
@@ -71,6 +130,15 @@
                                 />
                                 <jet-input-error class="mt-2" />
                             </div>
+                            <div class="col-span-4">
+                                <p class="text-lg font-semibold border-b">
+                                    Configuración del formulario
+                                </p>
+                                <p class="pt-1 text-sm text-gray-400">
+                                    Las casillas marcadas son aquellos datos que
+                                    se pedirá de forma obligatoria a tu cliente.
+                                </p>
+                            </div>
                             <!-- Name Required -->
                             <div class="col-span-3">
                                 <div class="flex items-center">
@@ -78,7 +146,7 @@
                                         type="checkbox"
                                         id="name_required"
                                         autocomplete=""
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings.name_required
                                         "
@@ -95,7 +163,7 @@
                                     <input
                                         type="checkbox"
                                         id="email_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings.email_required
                                         "
@@ -112,7 +180,7 @@
                                     <input
                                         type="checkbox"
                                         id="phone_number_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings
                                                 .phone_number_required
@@ -132,7 +200,7 @@
                                     <input
                                         type="checkbox"
                                         id="address_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings
                                                 .address_required
@@ -144,14 +212,40 @@
                                 </div>
                                 <jet-input-error class="mt-2" />
                             </div>
+                            <div class="col-span-4">
+                                <p class="text-lg font-semibold border-b">
+                                    Estado
+                                </p>
+                                <p class="pt-1 text-sm text-gray-400">
+                                    Puedes finalizar el enlace de pago marcando
+                                    la casilla. Si se ha finalizado el enlace,
+                                    tus clientes ya no tendrán acceso al método
+                                    de pago.
+                                </p>
+                            </div>
+                            <!-- Address Required -->
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="finished_at"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        v-model="form.finished_at"
+                                    />
+                                    <label for="finished_at" class="ml-2"
+                                        >Finalizar enlace</label
+                                    >
+                                </div>
+                                <jet-input-error class="mt-2" />
+                            </div>
                         </div>
                         <div
-                            class="flex items-center justify-end p-4  bg-gray-50 rounded-b-md"
+                            class="flex items-center justify-end p-4 bg-gray-50 rounded-b-md"
                         >
                             <button
                                 type="submit"
                                 :disabled="form.processing"
-                                class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md  disabled:bg-blue-300"
+                                class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md disabled:bg-blue-300"
                             >
                                 Actualizar
                             </button>
@@ -200,9 +294,21 @@ export default defineComponent({
                     props.paymentLink.policy_settings.address_required,
                 name_required: props.paymentLink.policy_settings.name_required,
             },
+            finished_at: props.paymentLink.finished_at == null ? false : true,
         });
 
-        return { form };
+        const dateFormat = (locale, timezone, date) => {
+            return new Date(date).toLocaleString(locale, {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                timezone: timezone,
+            });
+        };
+
+        return { form, dateFormat };
     },
 });
 </script>

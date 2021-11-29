@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             ->has(
                 PaymentLink::factory()->count(10)->state(
                     new Sequence(
-                        ['finished_at' => now()->addDays(3)],
+                        ['finished_at' => null],
                         ['finished_at' => now()],
                     )
                 )

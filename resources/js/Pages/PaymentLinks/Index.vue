@@ -83,7 +83,7 @@
                                             class="
                                                 px-2
                                                 py-0.5
-                                                text-green-700
+                                                text-green-600
                                                 font-bold
                                                 rounded-md
                                             "
@@ -95,7 +95,7 @@
                                                 px-2
                                                 py-0.5
                                                 font-bold
-                                                text-red-700
+                                                text-red-600
                                                 rounded-md
                                             "
                                             >Finalizado</span
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <div
-                class="flex justify-end px-4 pb-6 mx-auto  max-w-7xl sm:px-6 lg:px-8"
+                class="flex justify-end px-4 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
             >
                 <Pagination :links="paymentLinks.links" />
             </div>

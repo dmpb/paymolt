@@ -19,7 +19,7 @@ class PaymentLinkFactory extends Factory
             'currency'      => 'PEN',
             'amount'        => $this->faker->randomFloat(2, 5, 100),
             'description'   => $this->faker->text(50),
-            'finished_at'   => now()->addDays(3),
+            'finished_at'   => null,
             'policy_settings'   => [
                 'name_required'         => $this->faker->boolean,
                 'email_required'        => $this->faker->boolean,

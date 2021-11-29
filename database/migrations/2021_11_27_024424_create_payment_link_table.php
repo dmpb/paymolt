@@ -20,9 +20,9 @@ class CreatePaymentLinkTable extends Migration
             $table->enum('mode_type', ['development', 'production'])->default('development');
             $table->string('currency');
             $table->float('amount', 8, 2);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->json('policy_settings');
-            $table->timestamp('finished_at');
+            $table->timestamp('finished_at')->nullable();
             $table->timestamps();
         });
     }
