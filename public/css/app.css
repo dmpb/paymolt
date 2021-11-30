@@ -1430,6 +1430,10 @@ select {
 .list-disc {
 	list-style-type: disc;
 }
+.auto-rows-max {
+	grid-auto-rows: -webkit-max-content;
+	grid-auto-rows: max-content;
+}
 .grid-cols-6 {
 	grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -1453,6 +1457,12 @@ select {
 }
 .grid-rows-3 {
 	grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.grid-rows-4 {
+	grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+.grid-rows-5 {
+	grid-template-rows: repeat(5, minmax(0, 1fr));
 }
 .flex-col {
 	flex-direction: column;

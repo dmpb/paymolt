@@ -39,5 +39,7 @@ Route::middleware(['auth', 'credentials'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('payment-links', [PaymentLinkController::class, 'index'])->name('payment-links.index');
     Route::get('payment-links/{paymentLink:code}/edit', [PaymentLinkController::class, 'edit'])->name('payment-links.edit');
+    Route::get('payment-links/create', [PaymentLinkController::class, 'create'])->name('payment-links.create');
+    Route::post('payment-links', [PaymentLinkController::class, 'store'])->name('payment-links.store');
     Route::put('payment-links/{paymentLink:code}', [PaymentLinkController::class, 'update'])->name('payment-links.update');
 });

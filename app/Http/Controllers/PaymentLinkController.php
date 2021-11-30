@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PaymentLink;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\PaymentLink;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PaymentLinkController extends Controller
 {
@@ -30,7 +31,7 @@ class PaymentLinkController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('PaymentLinks/Create', []);
     }
 
     /**
@@ -41,7 +42,27 @@ class PaymentLinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'amount'        => ['required', 'numeric', 'min:1', 'max:2000'],
+            'description'   => ['nullable', 'string', 'max:500'],
+            'policy_settings.email_required'          => ['required', 'boolean'],
+            'policy_settings.phone_number_required'   => ['required', 'boolean'],
+            'policy_settings.address_required'        => ['required', 'boolean'],
+            'policy_settings.name_required'           => ['required', 'boolean'],
+        ]);
+
+        $request->user()->paymentLinks()->create([
+            'code'          => Str::uuid(),
+            'currency'      => 'PEN',
+            'amount'        => $request->amount,
+            'description'   => $request->description,
+            'policy_settings->email_required'            => $request->policy_settings['email_required'] == true ? true : false,
+            'policy_settings->phone_number_required'     => $request->policy_settings['phone_number_required'],
+            'policy_settings->address_required'          => $request->policy_settings['address_required'],
+            'policy_settings->name_required'             => $request->policy_settings['name_required'],
+        ]);
+
+        return redirect()->route('payment-links.index');
     }
 
     /**

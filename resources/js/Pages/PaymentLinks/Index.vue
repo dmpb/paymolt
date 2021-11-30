@@ -12,11 +12,12 @@
                         En esta sección se muestra todos los enlaces pagos que
                         ha generado.
                     </p>
-                    <button
+                    <Link
+                        :href="route('payment-links.create')"
                         class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md "
                     >
                         Crear enlace de pago
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -138,7 +139,7 @@
                 </div>
             </div>
             <div
-                class="flex justify-end px-4 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
+                class="flex justify-end px-4 pb-6 mx-auto  max-w-7xl sm:px-6 lg:px-8"
             >
                 <Pagination :links="paymentLinks.links" />
             </div>
