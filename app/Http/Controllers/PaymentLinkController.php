@@ -80,10 +80,10 @@ class PaymentLinkController extends Controller
             'amount'        => $request->amount,
             'description'   => $request->description,
             'finished_at'   => $request->finished_at == true ? now() : null,
-            'policy_settings.email_required'            => $request->policy_settings['email_required'],
-            'policy_settings.phone_number_required'     => $request->policy_settings['phone_number_required'],
-            'policy_settings.address_required'          => $request->policy_settings['address_required'],
-            'policy_settings.name_required'             => $request->policy_settings['name_required'],
+            'policy_settings->email_required'            => $request->policy_settings['email_required'] == true ? true : false,
+            'policy_settings->phone_number_required'     => $request->policy_settings['phone_number_required'],
+            'policy_settings->address_required'          => $request->policy_settings['address_required'],
+            'policy_settings->name_required'             => $request->policy_settings['name_required'],
         ]);
 
         return redirect()->route('payment-links.index');

@@ -22,6 +22,10 @@ class PaymentLink extends Model
         'amount',
         'description',
         'policy_settings',
+        'policy_settings->email_required',
+        'policy_settings->phone_number_required',
+        'policy_settings->address_required',
+        'policy_settings->name_required',
         'finished_at',
     ];
 
