@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Payment;
+use App\Models\PaymentLink;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -30,9 +31,9 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PaymentLink $paymentLink)
     {
-        //
+        return Inertia::render('Payments/Create');
     }
 
     /**

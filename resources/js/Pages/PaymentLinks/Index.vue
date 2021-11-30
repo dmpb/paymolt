@@ -44,9 +44,7 @@
                                     <div
                                         class="flex items-center justify-start px-6 py-3 text-sm text-blue-900 "
                                     >
-                                        htts://paymolt.com/buy/{{
-                                            paymentLink.code
-                                        }}
+                                        {{ route('payments.create', { paymentLink: paymentLink.code }) }}
                                     </div>
                                 </td>
                                 <td class="border-t">
@@ -139,7 +137,7 @@
                 </div>
             </div>
             <div
-                class="flex justify-end px-4 pb-6 mx-auto  max-w-7xl sm:px-6 lg:px-8"
+                class="flex justify-end px-4 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
             >
                 <Pagination :links="paymentLinks.links" />
             </div>

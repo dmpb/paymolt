@@ -31,12 +31,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+// Payments
 Route::middleware(['auth', 'credentials'])->group(function () {
     Route::get('payments', [PaymentController::class, 'index'])->name('payments.index');
     Route::get('payments/{payment}', [PaymentController::class, 'show'])->name('payments.show');
 });
+Route::get('buy/{paymentLink:code}', [PaymentController::class, 'create'])->name('payments.create');
 
-Route::middleware(['auth'])->group(function () {
+// Payment Links
+Route::middleware(['auth', 'credentials'])->group(function () {
     Route::get('payment-links', [PaymentLinkController::class, 'index'])->name('payment-links.index');
     Route::get('payment-links/{paymentLink:code}/edit', [PaymentLinkController::class, 'edit'])->name('payment-links.edit');
     Route::get('payment-links/create', [PaymentLinkController::class, 'create'])->name('payment-links.create');
