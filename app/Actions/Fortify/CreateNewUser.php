@@ -31,6 +31,10 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'settings->culqi_development->public_key' => '',
+            'settings->culqi_development->private_key' => '',
+            'settings->culqi_production->public_key' => '',
+            'settings->culqi_production->private_key' => '',
         ]);
     }
 }

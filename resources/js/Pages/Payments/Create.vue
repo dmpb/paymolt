@@ -4,7 +4,7 @@
 
         <div class="relative bg-white bg-opacity-20">
             <div
-                class="absolute items-center block max-w-4xl min-w-full min-h-screen mx-auto md:flex"
+                class="absolute items-center block max-w-4xl min-w-full min-h-screen mx-auto  md:flex"
             >
                 <div class="grid w-full grid-cols-1 gap-4 my-4 md:grid-cols-2">
                     <!-- Section 1 -->
@@ -18,7 +18,7 @@
                                     class="flex items-center justify-center w-6 h-6 rounded-full shadow-md "
                                 >
                                     <i
-                                        class="text-xs text-gray-400 fas fa-store"
+                                        class="text-xs text-gray-400  fas fa-store"
                                     ></i>
                                 </div>
                                 <div
@@ -41,7 +41,7 @@
                                 </p>
                             </div>
                             <p
-                                class="text-3xl font-bold text-center md:text-left"
+                                class="text-3xl font-bold text-center  md:text-left"
                             >
                                 {{
                                     moneyFormat(
@@ -52,7 +52,7 @@
                                 }}
                             </p>
                             <p
-                                class="mb-4 text-center text-gray-400 md:text-left"
+                                class="mb-4 text-center text-gray-400  md:text-left"
                             >
                                 {{ paymentLink.description }}
                             </p>
@@ -217,7 +217,7 @@
                             <div class="mt-4">
                                 <button
                                     @click="pay()"
-                                    class="block w-full px-4 py-3 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md disabled:bg-blue-300"
+                                    class="block w-full px-4 py-3 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md  disabled:bg-blue-300"
                                     :disabled="disabled_form"
                                 >
                                     Pagar

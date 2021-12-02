@@ -29,7 +29,10 @@ class User extends Authenticatable
         'email',
         'password',
         'nickname',
-        'settigs'
+        'settings->culqi_development->public_key',
+        'settings->culqi_development->private_key',
+        'settings->culqi_production->public_key',
+        'settings->culqi_production->private_key',
     ];
 
     /**

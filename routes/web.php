@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CulqiCredentialsController;
+use App\Http\Controllers\CulqiDevelopmentCredentialsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentLinkController;
 use App\Models\PaymentLink;
@@ -46,4 +48,9 @@ Route::middleware(['auth', 'credentials'])->group(function () {
     Route::get('payment-links/create', [PaymentLinkController::class, 'create'])->name('payment-links.create');
     Route::post('payment-links', [PaymentLinkController::class, 'store'])->name('payment-links.store');
     Route::put('payment-links/{paymentLink:code}', [PaymentLinkController::class, 'update'])->name('payment-links.update');
+});
+
+// Culqi Credentials
+Route::middleware(['auth'])->group(function () {
+    Route::post('', [CulqiDevelopmentCredentialsController::class, 'update'])->name('culqi-development-credentials.update');
 });

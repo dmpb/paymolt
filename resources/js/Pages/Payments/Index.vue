@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div
-                class="flex justify-end px-4 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
+                class="flex justify-end px-4 pb-6 mx-auto  max-w-7xl sm:px-6 lg:px-8"
             >
                 <Pagination :links="payments.links" />
             </div>

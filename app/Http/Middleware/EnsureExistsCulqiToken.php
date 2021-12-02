@@ -22,8 +22,8 @@ class EnsureExistsCulqiToken
 
         if ($user && !empty($public_key) && !empty($private_key)) {
             return $next($request);
-        } else{
-            return redirect('welcome');
+        } else {
+            return redirect()->route('dashboard');
         }
     }
 }
