@@ -1617,17 +1617,17 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
 }
-.bg-green-100 {
+.bg-green-50 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
+	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
 }
 .bg-red-50 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
 }
-.bg-green-50 {
+.bg-green-100 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
+	background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;

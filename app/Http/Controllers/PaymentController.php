@@ -19,6 +19,8 @@ class PaymentController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Payment::class);
+
         $user = $request->user();
         $payments = $user->payments()->orderBy('created_at', 'desc')->paginate();
 
@@ -34,8 +36,9 @@ class PaymentController extends Controller
      */
     public function create(PaymentLink $paymentLink)
     {
-        $seller = $paymentLink->user;
+        $this->authorize('create', [Payment::class, $paymentLink]);
 
+        $seller = $paymentLink->user;
         $sellerPublicKey = $seller->settings['culqi_development']['public_key'];
 
         return Inertia::render('Payments/Create', [
@@ -53,6 +56,8 @@ class PaymentController extends Controller
      */
     public function store(Request $request, PaymentLink $paymentLink)
     {
+        $this->authorize('create', [Payment::class, $paymentLink]);
+
         // Validar request
         $policy_settings = ['phone_number', 'address', 'name'];
         $validate = collect(['token', 'amount', 'currency', 'client.email']);
@@ -131,6 +136,8 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment, Request $request)
     {
+        $this->authorize('view', $payment);
+
         $api_url = Str::replaceFirst(
             ':charge',
             $payment->charge_culqi_id,

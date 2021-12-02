@@ -18,7 +18,7 @@ class PaymentLinkPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class PaymentLinkPolicy
      */
     public function view(User $user, PaymentLink $paymentLink)
     {
-        //
+        return $paymentLink->user->id == $user->id ? true : false;
     }
 
     /**
@@ -41,7 +41,7 @@ class PaymentLinkPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,42 +53,6 @@ class PaymentLinkPolicy
      */
     public function update(User $user, PaymentLink $paymentLink)
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\PaymentLink  $paymentLink
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function delete(User $user, PaymentLink $paymentLink)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\PaymentLink  $paymentLink
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function restore(User $user, PaymentLink $paymentLink)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\PaymentLink  $paymentLink
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete(User $user, PaymentLink $paymentLink)
-    {
-        //
+        return $paymentLink->user->id == $user->id ? true : false;
     }
 }

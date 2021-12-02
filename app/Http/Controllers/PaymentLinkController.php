@@ -16,6 +16,8 @@ class PaymentLinkController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('viewAny', PaymentLink::class);
+
         $user = $request->user();
         $paymentLinks = $user->paymentLinks()->orderBy('created_at', 'desc')->paginate();
 
@@ -31,6 +33,8 @@ class PaymentLinkController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', PaymentLink::class);
+
         return Inertia::render('PaymentLinks/Create', []);
     }
 
@@ -42,6 +46,8 @@ class PaymentLinkController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', PaymentLink::class);
+
         $request->validate([
             'amount'        => ['required', 'numeric', 'min:1', 'max:2000'],
             'description'   => ['nullable', 'string', 'max:500'],
@@ -73,6 +79,8 @@ class PaymentLinkController extends Controller
      */
     public function edit(PaymentLink $paymentLink)
     {
+        $this->authorize('update', $paymentLink);
+
         return Inertia::render('PaymentLinks/Edit', [
             'paymentLink'   => $paymentLink,
         ]);
@@ -87,6 +95,8 @@ class PaymentLinkController extends Controller
      */
     public function update(Request $request, PaymentLink $paymentLink)
     {
+        $this->authorize('update', $paymentLink);
+
         $request->validate([
             'amount'        => ['required', 'numeric', 'min:1', 'max:2000'],
             'description'   => ['nullable', 'string', 'max:500'],
@@ -108,16 +118,5 @@ class PaymentLinkController extends Controller
         ]);
 
         return redirect()->route('payment-links.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PaymentLink  $paymentLink
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PaymentLink $paymentLink)
-    {
-        //
     }
 }
