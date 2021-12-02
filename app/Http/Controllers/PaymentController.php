@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
@@ -21,7 +20,7 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        $payments = $user->payments()->paginate();
+        $payments = $user->payments()->orderBy('created_at', 'desc')->paginate();
 
         return Inertia::render('Payments/Index', [
             'payments'  => $payments,
@@ -76,7 +75,7 @@ class PaymentController extends Controller
 
         $request->validate($validation_filtered->all());
 
-        // Crear cargo
+        // Crear cargo con Culqi
         $seller = $paymentLink->user;
         $private_key_culqi = decrypt($seller->settings['culqi_development']['private_key']);
         $amount = strval($paymentLink->amount * 100);
@@ -88,10 +87,37 @@ class PaymentController extends Controller
             'source_id'         => $request->token,
         ]);
 
+        // Validar la respuesta
         if ($response->successful()) {
+            $response = $response->json();
+
+            $seller->payments()->create([
+                'charge_culqi_id'       => $response['id'],
+                'status'                => $response['outcome']['type'],
+                'amount'                => $paymentLink->amount,
+                'currency'              => $paymentLink->currency,
+                'description'           => $paymentLink->description,
+                'client->email'         => $request->client['email'],
+                'client->phone_number'  => $request->client['phone_number'],
+                'client->address'       => $request->client['address'],
+                'client->name'          => $request->client['name'],
+            ]);
+
             return Redirect::route('payments.create', ['paymentLink' => $paymentLink])->with('success', "Su compra ha sido exitosa.");
         } else {
             $response = $response->json();
+
+            $seller->payments()->create([
+                'charge_culqi_id'       => $response['charge_id'],
+                'status'                => $response['type'],
+                'amount'                => $paymentLink->amount,
+                'currency'              => $paymentLink->currency,
+                'description'           => $paymentLink->description,
+                'client->email'         => $request->client['email'],
+                'client->phone_number'  => $request->client['phone_number'],
+                'client->address'       => $request->client['address'],
+                'client->name'          => $request->client['name'],
+            ]);
 
             return Redirect::route('payments.create', ['paymentLink' => $paymentLink])->with('error', $response['user_message']);
         }

@@ -275,13 +275,13 @@ export default defineComponent({
         const form = useForm({
             token: null,
             card: {
-                number: "3712 1212 1212 122",
-                month: "11",
-                year: "25",
-                cvc: "2841",
+                number: null,
+                month: null,
+                year: null,
+                cvc: null,
             },
             client: {
-                email: "dmasdf@asfd.com",
+                email: null,
                 phone_number: null,
                 address: null,
                 name: null,

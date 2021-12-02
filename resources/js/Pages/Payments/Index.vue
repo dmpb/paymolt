@@ -116,7 +116,7 @@
                                         "
                                         class="flex items-center px-6 py-3 text-sm "
                                     >
-                                        {{ payment.client.name }}
+                                        {{ payment.client.email }}
                                     </Link>
                                 </td>
                                 <td class="border-t">

@@ -28,7 +28,7 @@
                             </p>
                             <span
                                 v-if="
-                                    culqiSource.outcome.type === 'venta_exitosa'
+                                    payment.status === 'venta_exitosa'
                                 "
                                 class="
                                     px-2
@@ -75,7 +75,7 @@
                 <div class="px-4 py-4 mb-6 bg-white rounded-md">
                     <h2 class="pb-1 text-lg font-bold border-b">Cliente</h2>
                     <div
-                        class="grid grid-cols-1 gap-2 pt-4  md:gap-4 md:grid-cols-2"
+                        class="grid grid-cols-1 gap-2 pt-4 md:gap-4 md:grid-cols-2"
                     >
                         <div class="grid grid-cols-3 gap-2 md:grid-cols-7">
                             <div class="col-span-1 text-gray-500 md:col-span-2">
@@ -110,7 +110,7 @@
                         Tarjeta
                     </h2>
                     <div
-                        class="grid grid-cols-1 gap-2 pt-4  md:gap-4 md:grid-cols-2"
+                        class="grid grid-cols-1 gap-2 pt-4 md:gap-4 md:grid-cols-2"
                     >
                         <div class="grid grid-cols-3 gap-2 md:grid-cols-7">
                             <div class="col-span-1 text-gray-500 md:col-span-2">
@@ -157,7 +157,7 @@
                         Navegador
                     </h2>
                     <div
-                        class="grid grid-cols-1 gap-2 pt-4  md:gap-4 md:grid-cols-2"
+                        class="grid grid-cols-1 gap-2 pt-4 md:gap-4 md:grid-cols-2"
                     >
                         <div class="grid grid-cols-3 gap-2 md:grid-cols-7">
                             <div class="col-span-1 text-gray-500 md:col-span-2">
@@ -180,7 +180,7 @@
                             </div>
                         </div>
                         <div
-                            class="grid grid-cols-3 grid-rows-3 gap-2  md:grid-cols-7"
+                            class="grid grid-cols-3 grid-rows-3 gap-2 md:grid-cols-7"
                         >
                             <div class="col-span-1 text-gray-500 md:col-span-2">
                                 Navegador:
@@ -200,7 +200,7 @@
                         Respuesta
                     </h2>
                     <p class="pt-5">
-                        {{ culqiSource.outcome.merchant_message }}
+                        {{ culqiSource.outcome !== null ? culqiSource.outcome.merchant_message : 'Sin respuesta' }}
                     </p>
                 </div>
             </div>

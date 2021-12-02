@@ -22,7 +22,10 @@ class Payment extends Model
         'currency',
         'amount',
         'description',
-        'client',
+        'client->email',
+        'client->name',
+        'client->phone_number',
+        'client->address',
     ];
 
     /**
