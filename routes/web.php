@@ -36,7 +36,8 @@ Route::middleware(['auth', 'credentials'])->group(function () {
     Route::get('payments', [PaymentController::class, 'index'])->name('payments.index');
     Route::get('payments/{payment}', [PaymentController::class, 'show'])->name('payments.show');
 });
-Route::get('buy/{paymentLink:code}', [PaymentController::class, 'create'])->name('payments.create');
+Route::get('pay/{paymentLink:code}', [PaymentController::class, 'create'])->name('payments.create');
+Route::post('payments/{paymentLink:code}', [PaymentController::class, 'store'])->name('payments.store');
 
 // Payment Links
 Route::middleware(['auth', 'credentials'])->group(function () {

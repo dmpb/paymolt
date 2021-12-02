@@ -17,6 +17,8 @@
     <!-- Scripts -->
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <!-- Incluyendo .js de Culqi JS -->
+    <script src="https://checkout.culqi.com/v2"></script>
 </head>
 
 <body class="font-sans antialiased">

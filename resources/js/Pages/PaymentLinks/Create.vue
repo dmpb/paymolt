@@ -77,6 +77,24 @@
                                     se pedirá de forma obligatoria a tu cliente.
                                 </p>
                             </div>
+                            <!-- Email Required -->
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="email_required"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        v-model="
+                                            form.policy_settings.email_required
+                                        "
+                                        disabled
+                                    />
+                                    <label for="email_required" class="ml-2"
+                                        >Requerir email</label
+                                    >
+                                </div>
+                                <jet-input-error class="mt-2" />
+                            </div>
                             <!-- Name Required -->
                             <div class="col-span-3">
                                 <div class="flex items-center">
@@ -91,23 +109,6 @@
                                     />
                                     <label for="name_required" class="ml-2"
                                         >Requerir nombres</label
-                                    >
-                                </div>
-                                <jet-input-error class="mt-2" />
-                            </div>
-                            <!-- Email Required -->
-                            <div class="col-span-3">
-                                <div class="flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        id="email_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        v-model="
-                                            form.policy_settings.email_required
-                                        "
-                                    />
-                                    <label for="email_required" class="ml-2"
-                                        >Requerir email</label
                                     >
                                 </div>
                                 <jet-input-error class="mt-2" />
@@ -193,7 +194,7 @@ export default defineComponent({
             amount: null,
             description: null,
             policy_settings: {
-                email_required: false,
+                email_required: true,
                 phone_number_required: false,
                 address_required: false,
                 name_required: false,

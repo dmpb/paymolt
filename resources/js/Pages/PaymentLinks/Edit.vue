@@ -128,7 +128,10 @@
                                     autocomplete="description"
                                     v-model="form.description"
                                 />
-                                <jet-input-error class="mt-2" />
+                                <jet-input-error
+                                    class="mt-2"
+                                    :message="form.errors.description"
+                                />
                             </div>
                             <div class="col-span-4">
                                 <p class="text-lg font-semibold border-b">
@@ -139,31 +142,13 @@
                                     se pedirá de forma obligatoria a tu cliente.
                                 </p>
                             </div>
-                            <!-- Name Required -->
-                            <div class="col-span-3">
-                                <div class="flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        id="name_required"
-                                        autocomplete=""
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        v-model="
-                                            form.policy_settings.name_required
-                                        "
-                                    />
-                                    <label for="name_required" class="ml-2"
-                                        >Requerir nombres</label
-                                    >
-                                </div>
-                                <jet-input-error class="mt-2" />
-                            </div>
                             <!-- Email Required -->
                             <div class="col-span-3">
                                 <div class="flex items-center">
                                     <input
                                         type="checkbox"
                                         id="email_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings.email_required
                                         "
@@ -172,7 +157,39 @@
                                         >Requerir email</label
                                     >
                                 </div>
-                                <jet-input-error class="mt-2" />
+                                <jet-input-error
+                                    class="mt-2"
+                                    :message="
+                                        form.errors[
+                                            'policy_settings.email_required'
+                                        ]
+                                    "
+                                />
+                            </div>
+                            <!-- Name Required -->
+                            <div class="col-span-3">
+                                <div class="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="name_required"
+                                        autocomplete=""
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        v-model="
+                                            form.policy_settings.name_required
+                                        "
+                                    />
+                                    <label for="name_required" class="ml-2"
+                                        >Requerir nombres</label
+                                    >
+                                </div>
+                                <jet-input-error
+                                    class="mt-2"
+                                    :message="
+                                        form.errors[
+                                            'policy_settings->name_required'
+                                        ]
+                                    "
+                                />
                             </div>
                             <!-- Phone Number Required -->
                             <div class="col-span-3">
@@ -180,7 +197,7 @@
                                     <input
                                         type="checkbox"
                                         id="phone_number_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings
                                                 .phone_number_required
@@ -192,7 +209,14 @@
                                         >Requerir número telefónico</label
                                     >
                                 </div>
-                                <jet-input-error class="mt-2" />
+                                <jet-input-error
+                                    class="mt-2"
+                                    :message="
+                                        form.errors[
+                                            'policy_settings->phone_number_required'
+                                        ]
+                                    "
+                                />
                             </div>
                             <!-- Address Required -->
                             <div class="col-span-3">
@@ -200,7 +224,7 @@
                                     <input
                                         type="checkbox"
                                         id="address_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings
                                                 .address_required
@@ -210,7 +234,14 @@
                                         >Requerir dirección</label
                                     >
                                 </div>
-                                <jet-input-error class="mt-2" />
+                                <jet-input-error
+                                    class="mt-2"
+                                    :message="
+                                        form.errors[
+                                            'policy_settings->address_required'
+                                        ]
+                                    "
+                                />
                             </div>
                             <div class="col-span-4">
                                 <p class="text-lg font-semibold border-b">
@@ -229,7 +260,7 @@
                                     <input
                                         type="checkbox"
                                         id="finished_at"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-blue-600 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="form.finished_at"
                                     />
                                     <label for="finished_at" class="ml-2"
@@ -240,12 +271,12 @@
                             </div>
                         </div>
                         <div
-                            class="flex items-center justify-end p-4 bg-gray-50 rounded-b-md"
+                            class="flex items-center justify-end p-4  bg-gray-50 rounded-b-md"
                         >
                             <button
                                 type="submit"
                                 :disabled="form.processing"
-                                class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md disabled:bg-blue-300"
+                                class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md  disabled:bg-blue-300"
                             >
                                 Actualizar
                             </button>
