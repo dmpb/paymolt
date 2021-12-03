@@ -1,11 +1,11 @@
 <template>
     <div class="relative min-h-screen bg-gray-50">
-        <div class="mx-auto sm:max-w-sm">
+        <div class="mx-auto sm:max-w-md">
             <div class="px-6 py-6 sm:px-0">
                 <slot name="logo" />
             </div>
 
-            <div class="px-6 py-4 bg-white shadow-lg sm:rounded-lg">
+            <div class="py-10 bg-white shadow-lg px-14 sm:rounded-lg">
                 <h2
                     class="pb-4 text-2xl font-bold text-gray-700  text-nunito_sans"
                 >

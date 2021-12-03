@@ -21978,13 +21978,13 @@ var _hoisted_1 = {
   "class": "relative min-h-screen bg-gray-50"
 };
 var _hoisted_2 = {
-  "class": "mx-auto sm:max-w-sm"
+  "class": "mx-auto sm:max-w-md"
 };
 var _hoisted_3 = {
   "class": "px-6 py-6 sm:px-0"
 };
 var _hoisted_4 = {
-  "class": "px-6 py-4 bg-white shadow-lg sm:rounded-lg"
+  "class": "py-10 bg-white shadow-lg px-14 sm:rounded-lg"
 };
 var _hoisted_5 = {
   "class": "pb-4 text-2xl font-bold text-gray-700 text-nunito_sans"
