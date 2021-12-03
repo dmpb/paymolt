@@ -14,9 +14,9 @@
                             <div class="flex items-center flex-shrink-0">
                                 <Link :href="route('dashboard')">
                                     <h1
-                                        class="text-2xl font-extrabold text-indigo-500 "
+                                        class="text-2xl font-extrabold text-indigo-500  text-nunito_sans"
                                     >
-                                        Paymolt
+                                        <i>Paymolt</i>
                                     </h1>
                                 </Link>
                             </div>
