@@ -4,7 +4,7 @@
 
         <jet-banner />
 
-        <div class="min-h-screen bg-gray-50">
+        <div class="relative min-h-screen pb-20 bg-gray-50">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -496,6 +496,19 @@
             <main>
                 <slot></slot>
             </main>
+
+            <!-- Footer -->
+            <footer
+                class="absolute bottom-0 w-full px-3 py-4 mt-auto text-center bg-white "
+            >
+                <p>Created with ❤️ by Daniel Ponce</p>
+                <a
+                    href="https://github.com/dmpb"
+                    target="_blank"
+                    class="text-blue-600 hover:text-blue-400"
+                    >My Github</a
+                >
+            </footer>
         </div>
     </div>
 </template>
