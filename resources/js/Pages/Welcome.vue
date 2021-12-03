@@ -55,7 +55,7 @@
                                 Genera enlaces para aceptar pagos con tarjeta.
                             </p>
                             <strong class="font-semibold text-poppins"
-                                >Sin contruir una pagina web</strong
+                                >Sin construir una página web</strong
                             >
                         </div>
                         <div class="max-w-md pr-2 mt-8 text-lg text-white">
@@ -65,10 +65,10 @@
                                     >genera enlaces de pago</span
                                 >
                                 para hacer efectivo tus cobros por internet con
-                                cualquier tipo de tarjeta de debito o credito.
+                                cualquier tipo de tarjeta de débito o crédito.
                             </p>
                             <p class="pt-4 text-base">
-                                Sirviendo desde Diciembre 2021.
+                                Sirviendo desde diciembre 2021.
                             </p>
                         </div>
                     </div>
@@ -171,15 +171,15 @@
 
                         <div class="ml-12">
                             <div class="mt-2 text-sm text-gray-500">
-                                La doucumentación de como usar Paymolt se
-                                realizará proximamente.
+                                La documentación de cómo usar Paymolt se
+                                realizará próximamente.
                             </div>
 
                             <a href="/">
                                 <div
                                     class="flex items-center mt-3 text-sm font-semibold text-indigo-700 "
                                 >
-                                    <div>Explore la doucumentación</div>
+                                    <div>Explore la documentación</div>
 
                                     <div class="ml-1 text-indigo-500">
                                         <svg
@@ -219,8 +219,8 @@
                             <div class="mt-2 text-sm text-gray-500">
                                 Mi nombre es Daniel Ponce. Yo soy desarrollador
                                 de software. Me gusta dar soluciones a problemas
-                                con la tecnología. Si deseas ver mas proyectos,
-                                puedes dar clic en el enlace de abajo.
+                                con la tecnología. Si deseas ver más proyectos
+                                míos, puedes dar clic en el enlace de abajo.
                             </div>
 
                             <a href="https://github.com/dmpb">
