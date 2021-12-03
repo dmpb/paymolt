@@ -217,7 +217,7 @@
                             <div class="mt-4">
                                 <button
                                     @click="pay()"
-                                    class="block w-full px-4 py-3 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md  disabled:bg-blue-300"
+                                    class="block w-full px-4 py-3 text-xs font-semibold text-white uppercase bg-gray-800 rounded-md  disabled:bg-gray-500"
                                     :disabled="disabled_form"
                                 >
                                     Pagar

@@ -14,7 +14,7 @@
                     </p>
                     <Link
                         :href="route('payment-links.create')"
-                        class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md "
+                        class="px-4 py-2 text-xs font-semibold text-white uppercase bg-indigo-500 rounded-md "
                     >
                         Crear enlace de pago
                     </Link>

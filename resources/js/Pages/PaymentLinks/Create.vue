@@ -83,7 +83,7 @@
                                     <input
                                         type="checkbox"
                                         id="email_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-indigo-500 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings.email_required
                                         "
@@ -102,7 +102,7 @@
                                         type="checkbox"
                                         id="name_required"
                                         autocomplete=""
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-indigo-500 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings.name_required
                                         "
@@ -119,7 +119,7 @@
                                     <input
                                         type="checkbox"
                                         id="phone_number_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-indigo-500 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings
                                                 .phone_number_required
@@ -139,7 +139,7 @@
                                     <input
                                         type="checkbox"
                                         id="address_required"
-                                        class="text-blue-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        class="text-indigo-500 border-gray-300 rounded shadow-sm  focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                         v-model="
                                             form.policy_settings
                                                 .address_required
@@ -153,12 +153,12 @@
                             </div>
                         </div>
                         <div
-                            class="flex items-center justify-end p-4 bg-gray-50 rounded-b-md"
+                            class="flex items-center justify-end p-4  bg-gray-50 rounded-b-md"
                         >
                             <button
                                 type="submit"
                                 :disabled="form.processing"
-                                class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md disabled:bg-blue-300"
+                                class="px-4 py-2 text-xs font-semibold text-white uppercase bg-gray-800 rounded-md  disabled:bg-gray-500"
                             >
                                 Crear
                             </button>

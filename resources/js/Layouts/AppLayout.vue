@@ -13,9 +13,11 @@
                             <!-- Logo -->
                             <div class="flex items-center flex-shrink-0">
                                 <Link :href="route('dashboard')">
-                                    <jet-application-mark
-                                        class="block w-auto h-9"
-                                    />
+                                    <h1
+                                        class="text-2xl font-extrabold text-indigo-500 "
+                                    >
+                                        Paymolt
+                                    </h1>
                                 </Link>
                             </div>
 
@@ -235,7 +237,7 @@
                                         <div
                                             class="block px-4 py-2 text-xs text-gray-400 "
                                         >
-                                            Manage Account
+                                            Administrar cuenta
                                         </div>
 
                                         <jet-dropdown-link

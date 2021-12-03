@@ -14,7 +14,7 @@
                     </p>
                     <Link
                         :href="route('payment-links.create')"
-                        class="px-4 py-2 text-xs font-semibold text-white uppercase bg-blue-600 rounded-md "
+                        class="px-4 py-2 text-xs font-semibold text-white uppercase bg-indigo-500 rounded-md "
                     >
                         Crear enlace de pago
                     </Link>
@@ -44,7 +44,11 @@
                                     <div
                                         class="flex items-center justify-start px-6 py-3 text-sm text-blue-900 "
                                     >
-                                        {{ route('payments.create', { paymentLink: paymentLink.code }) }}
+                                        {{
+                                            route("payments.create", {
+                                                paymentLink: paymentLink.code,
+                                            })
+                                        }}
                                     </div>
                                 </td>
                                 <td class="border-t">
@@ -82,7 +86,7 @@
                                             class="
                                                 px-2
                                                 py-0.5
-                                                text-green-600
+                                                text-green-500
                                                 font-bold
                                                 rounded-md
                                             "
@@ -94,7 +98,7 @@
                                                 px-2
                                                 py-0.5
                                                 font-bold
-                                                text-red-600
+                                                text-red-500
                                                 rounded-md
                                             "
                                             >Finalizado</span
@@ -137,7 +141,7 @@
                 </div>
             </div>
             <div
-                class="flex justify-end px-4 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
+                class="flex justify-end px-4 pb-6 mx-auto  max-w-7xl sm:px-6 lg:px-8"
             >
                 <Pagination :links="paymentLinks.links" />
             </div>

@@ -11,12 +11,13 @@
             </div>
         </template>
         <div>
-            <div class="max-w-5xl px-4 py-6 mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-between px-2 py-4">
-                    <div class="w-1/2 sm:w-3/5">
+            <div class="max-w-4xl py-6 mx-auto md:px-4 sm:px-6 lg:px-8">
+                <div class="block px-4 py-4 md:px-2 md:justify-between md:flex">
+                    <div class="w-full sm:w-3/5">
                         <div
                             class="flex inline-flex items-center justify-center"
                         >
+                            <!-- Amount -->
                             <p class="mr-4 text-2xl font-bold">
                                 {{
                                     moneyFormat(
@@ -26,10 +27,9 @@
                                     )
                                 }}
                             </p>
+                            <!-- Status -->
                             <span
-                                v-if="
-                                    payment.status === 'venta_exitosa'
-                                "
+                                v-if="payment.status === 'venta_exitosa'"
                                 class="
                                     px-2
                                     py-0.5
@@ -56,6 +56,7 @@
                                 Rechazada
                             </span>
                         </div>
+                        <!-- Created At -->
                         <p class="text-sm text-gray-500">
                             {{
                                 dateFormat(
@@ -66,7 +67,8 @@
                             }}
                         </p>
                     </div>
-                    <div class="w-1/2 pl-6 sm:w-2/5">
+                    <!-- Description -->
+                    <div class="w-full md:pl-6 sm:w-2/5">
                         <p class="text-sm">
                             {{ payment.description }}
                         </p>
@@ -75,7 +77,7 @@
                 <div class="px-4 py-4 mb-6 bg-white rounded-md">
                     <h2 class="pb-1 text-lg font-bold border-b">Cliente</h2>
                     <div
-                        class="grid grid-cols-1 gap-2 pt-4 md:gap-4 md:grid-cols-2"
+                        class="grid grid-cols-1 gap-2 pt-4  md:gap-4 md:grid-cols-2"
                     >
                         <div class="grid grid-cols-3 gap-2 md:grid-cols-7">
                             <div class="col-span-1 text-gray-500 md:col-span-2">
@@ -110,7 +112,7 @@
                         Tarjeta
                     </h2>
                     <div
-                        class="grid grid-cols-1 gap-2 pt-4 md:gap-4 md:grid-cols-2"
+                        class="grid grid-cols-1 gap-2 pt-4  md:gap-4 md:grid-cols-2"
                     >
                         <div class="grid grid-cols-3 gap-2 md:grid-cols-7">
                             <div class="col-span-1 text-gray-500 md:col-span-2">
@@ -157,7 +159,7 @@
                         Navegador
                     </h2>
                     <div
-                        class="grid grid-cols-1 gap-2 pt-4 md:gap-4 md:grid-cols-2"
+                        class="grid grid-cols-1 gap-2 pt-4  md:gap-4 md:grid-cols-2"
                     >
                         <div class="grid grid-cols-3 gap-2 md:grid-cols-7">
                             <div class="col-span-1 text-gray-500 md:col-span-2">
@@ -180,7 +182,7 @@
                             </div>
                         </div>
                         <div
-                            class="grid grid-cols-3 grid-rows-3 gap-2 md:grid-cols-7"
+                            class="grid grid-cols-3 grid-rows-3 gap-2  md:grid-cols-7"
                         >
                             <div class="col-span-1 text-gray-500 md:col-span-2">
                                 Navegador:
@@ -200,7 +202,11 @@
                         Respuesta
                     </h2>
                     <p class="pt-5">
-                        {{ culqiSource.outcome !== null ? culqiSource.outcome.merchant_message : 'Sin respuesta' }}
+                        {{
+                            culqiSource.outcome !== null
+                                ? culqiSource.outcome.merchant_message
+                                : "Sin respuesta"
+                        }}
                     </p>
                 </div>
             </div>
