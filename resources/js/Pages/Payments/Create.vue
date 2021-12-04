@@ -2,11 +2,22 @@
     <div>
         <Head title="Pago" />
         <Head>
-            <meta property="og:title" content="Pago - Paymolt" />
+            <meta
+                property="og:title"
+                :content="seller.name + ' - ' + 'Venta'"
+            />
             <meta
                 inertia
                 property="og:description"
-                :content="paymentLink.description"
+                :content="
+                    paymentLink.description +
+                    ' ---- Total: ' +
+                    moneyFormat(
+                        'es-PE',
+                        paymentLink.currency,
+                        paymentLink.amount
+                    )
+                "
             />
         </Head>
 

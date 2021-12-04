@@ -40,7 +40,7 @@ class PaymentPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user, PaymentLink $paymentLink)
+    public function create(?User $user, PaymentLink $paymentLink)
     {
         return ($paymentLink->finished_at) ? false : true;
     }
