@@ -19,6 +19,16 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <!-- Incluyendo .js de Culqi JS -->
     <script src="https://checkout.culqi.com/v2"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_ANALYTIC_ID') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', "{{ env('GOOGLE_ANALYTIC_ID') }}");
+    </script>
 </head>
 
 <body class="font-sans antialiased">
