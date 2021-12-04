@@ -46,7 +46,7 @@ class CreateUser extends Command
                 'email' => 'dmpb@example.com',
                 'password' => Hash::make('password'),
                 'settings->culqi_development->public_key' => 'pk_test_2baa0c68aa9d5f63',
-                'settings->culqi_development->private_key' => 'sk_test_b81df9935f43b041',
+                'settings->culqi_development->private_key' => encrypt('sk_test_b81df9935f43b041'),
                 'settings->culqi_production->public_key' => '',
                 'settings->culqi_production->private_key' => '',
             ]);
