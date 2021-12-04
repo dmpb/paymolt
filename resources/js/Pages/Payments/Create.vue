@@ -1,23 +1,12 @@
 <template>
     <div>
-        <Head title="Comprar" />
-        <Head title="Comprar">
-            <meta
-                property="og:title"
-                :content="seller.name + ' - ' + 'Paymolt checkout'"
-            />
+        <Head title="Pago" />
+        <Head>
+            <meta property="og:title" content="Pago - Paymolt" />
             <meta
                 inertia
                 property="og:description"
-                :content="
-                    paymentLink.description +
-                    ' ---- Total: ' +
-                    moneyFormat(
-                        'es-PE',
-                        paymentLink.currency,
-                        paymentLink.amount
-                    )
-                "
+                :content="paymentLink.description"
             />
         </Head>
 
