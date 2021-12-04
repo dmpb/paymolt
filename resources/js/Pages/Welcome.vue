@@ -1,6 +1,14 @@
 <template>
     <Head title="Bienvenido" />
 
+    <div
+        class="py-4 text-sm text-center text-gray-700 bg-yellow-100  text-poppins"
+    >
+        💣 Todos los datos son falsos
+        <span class="text-xs text-white bg-yellow-500 py-0.5 px-2 rounded-full"
+            >Modo Prueba</span
+        >
+    </div>
     <!-- Header -->
     <div class="relative bg-white">
         <div
