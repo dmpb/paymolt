@@ -1,6 +1,25 @@
 <template>
     <div>
         <Head title="Comprar" />
+        <Head title="Comprar">
+            <meta
+                property="og:title"
+                :content="seller.name + ' - ' + 'Paymolt checkout'"
+            />
+            <meta
+                inertia
+                property="og:description"
+                :content="
+                    paymentLink.description +
+                    ' ---- Total: ' +
+                    moneyFormat(
+                        'es-PE',
+                        paymentLink.currency,
+                        paymentLink.amount
+                    )
+                "
+            />
+        </Head>
 
         <div class="relative bg-white bg-opacity-20">
             <div
